@@ -1,5 +1,4 @@
 package se.lexicon.model;
-package se.lexicon.model;
 
 public class Toy extends Product {
     private int ageRecommendation;
