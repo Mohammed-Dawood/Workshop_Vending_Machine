@@ -38,6 +38,10 @@ public abstract class Product {
         this.productName = productName;
     }
 
+    public String getDescription() {
+        return "Item: " + id + "Product Name" + productName + " , Price: " + price;
+    }
+
     // Abstract method
     public abstract String examine();
 
