@@ -1,4 +1,5 @@
 package se.lexicon.model;
+package se.lexicon.model;
 
 public abstract class Product {
     private String id;
