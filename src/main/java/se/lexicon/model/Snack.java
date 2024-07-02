@@ -29,4 +29,9 @@ public class Snack extends Product {
     public String use() {
         return "You are eating the " + getProductName() + " snack with " + flavor + " flavor.";
     }
+
+    @Override
+    public double calculateTax() {
+        return super.getPrice() * 0.2;
+    }
 }

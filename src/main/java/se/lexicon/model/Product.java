@@ -42,4 +42,6 @@ public abstract class Product {
     public abstract String examine();
 
     public abstract String use();
+
+    public abstract double calculateTax();
 }

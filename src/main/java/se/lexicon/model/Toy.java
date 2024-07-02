@@ -29,4 +29,9 @@ public class Toy extends Product {
     public String use() {
         return "You are playing with the " + getProductName() + " toy, suitable for ages " + ageRecommendation + " and up.";
     }
+
+    @Override
+    public double calculateTax() {
+        return super.getPrice() * 0.3;
+    }
 }
