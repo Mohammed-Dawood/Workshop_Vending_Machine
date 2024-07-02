@@ -1,8 +1,8 @@
 package se.lexicon;
 
+import se.lexicon.model.Toy;
 import se.lexicon.model.Drink;
 import se.lexicon.model.Snack;
-import se.lexicon.model.Toy;
 
 public class App {
     public static void main(String[] args) {
