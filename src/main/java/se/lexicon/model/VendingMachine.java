@@ -4,11 +4,11 @@ public interface VendingMachine {
 
     void addCurrency(int amount);
 
-    int getBalance();
+    double getBalance();
 
     Product request(int id);
 
-    int endSession();
+    double endSession();
 
     String getDescription(int id);
 

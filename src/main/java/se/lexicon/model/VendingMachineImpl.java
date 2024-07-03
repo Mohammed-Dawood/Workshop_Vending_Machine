@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.ArrayList;
 
 public class VendingMachineImpl implements VendingMachine {
-    private int balance;
+    private double balance;
     private final List<Product> products;
 
     // Constructor
@@ -45,7 +45,7 @@ public class VendingMachineImpl implements VendingMachine {
     }
 
     @Override
-    public int getBalance() {
+    public double getBalance() {
         return balance;
     }
 
@@ -53,8 +53,9 @@ public class VendingMachineImpl implements VendingMachine {
     public Product request(int id) {
         for (Product product : products) {
             if (Integer.parseInt(product.getId()) == id) {
-                if (balance >= product.getPrice()) {
-                    balance -= (int) product.getPrice();
+                double totalPrice = product.getPrice() + product.calculateTax();
+                if (balance >= totalPrice) {
+                    balance -= totalPrice;
                     return product;
                 } else {
                     System.out.println("Insufficient balance.");
@@ -66,9 +67,10 @@ public class VendingMachineImpl implements VendingMachine {
         return null;
     }
 
+
     @Override
-    public int endSession() {
-        int refund = balance;
+    public double endSession() {
+        double refund = balance;
         balance = 0;
         return refund;
     }

@@ -1,6 +1,7 @@
 package se.lexicon;
 
 import java.util.Scanner;
+import se.lexicon.model.Product;
 import se.lexicon.model.VendingMachine;
 import se.lexicon.model.VendingMachineImpl;
 
@@ -36,13 +37,18 @@ public class App {
                 case 2:
                     System.out.print("Enter product ID to request: ");
                     int productId = scanner.nextInt();
-                    if (vendingMachine.request(productId) != null) {
-                        System.out.println("Product purchased successfully.");
+                    Product purchasedProduct = vendingMachine.request(productId);
+                    if (purchasedProduct != null) {
+                        System.out.println("Product purchased successfully: " + purchasedProduct.getProductName());
+                        System.out.println(purchasedProduct.use());
+                        System.out.printf("Price without tax: %.2f%n", purchasedProduct.getPrice());
+                        System.out.printf("Tax: %.2f%n", purchasedProduct.calculateTax());
+                        System.out.printf("Total price with tax: %.2f%n", (purchasedProduct.getPrice() + purchasedProduct.calculateTax()));
                     }
                     System.out.println("Current balance: " + vendingMachine.getBalance());
                     break;
                 case 3:
-                    int refund = vendingMachine.endSession();
+                    double refund = vendingMachine.endSession();
                     System.out.println("Session ended. Refunded amount: " + refund);
                     break;
                 case 4:
